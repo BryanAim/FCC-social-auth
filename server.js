@@ -6,6 +6,7 @@ const fccTesting  = require('./freeCodeCamp/fcctesting.js');
 const session     = require('express-session');
 const mongo       = require('mongodb').MongoClient;
 const passport    = require('passport');
+require('dotenv').config();
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug')
 
 mongo.connect(process.env.DATABASE, (err, db) => {
+
+  console.log(db);
+  
     if(err) {
         console.log('Database error: ' + err);
     } else {
