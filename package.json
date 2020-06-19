@@ -19,9 +19,10 @@
 		"express-session": "^1.15.0",
 		"helmet": "^3.4.0",
 		"mongodb": "^3.5.9",
-		"pug": "^3.0.0",
 		"passport": "^0.3.2",
-		"passport-local": "^1.0.0"
+		"passport-github": "^1.1.0",
+		"passport-local": "^1.0.0",
+		"pug": "^3.0.0"
 	},
 	"engines": {
 		"node": "4.4.3"
