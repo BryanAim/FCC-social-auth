@@ -8,6 +8,7 @@ const passport      = require('passport');
 const session       = require('express-session');
 const ObjectID      = require('mongodb').ObjectID;
 const LocalStrategy = require('passport-local');
+const GitHubStrategy= require('passport-github').Strategy;
 
 
 const bcrypt        = require('bcrypt');
@@ -126,6 +127,16 @@ mongo.connect(process.env.DATABASE,{ useUnifiedTopology: true }, (err, connectio
       }
     );
   }));
+    
+    passport.use(new GitHubStrategy({
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: "https://glitch.com/@BryanAim/auth/github/callback"
+    },
+      function(accessToken, refreshToken, profile, cb){
+      console.log(profile);
+    }
+  ));
 
     app.route('/').get((req, res) => res.render(
       process.cwd() + '/views/pug/index.pug',
