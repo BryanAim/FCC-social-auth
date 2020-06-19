@@ -9,6 +9,8 @@ const session       = require('express-session');
 const ObjectID      = require('mongodb').ObjectID;
 const LocalStrategy = require('passport-local');
 const GitHubStrategy= require('passport-github').Strategy;
+require('dotenv').config();
+
 
 
 const bcrypt        = require('bcrypt');
